@@ -32,17 +32,16 @@ def calculator(operation, num1, num2):
     try:
         num1 = float(num1)
         num2 = float(num2)
-        if operation == "+":
-            return num1 + num2
-        elif operation == "-":
-            return num1 - num2
-        elif operation == "*":
-            return num1 * num2
-        elif operation == "/":
-            return num1 / num2
-        else:
+        operations = {
+            "+": num1 + num2,
+            "-": num1 - num2,
+            "*": num1 * num2,
+            "/": num1 / num2
+        }
+        result = operations.get(operation)
+        if result is None:
             print("Invalid operation!")
-            return None 
+        return result
     except ValueError:
         return "Invalid value"
 
